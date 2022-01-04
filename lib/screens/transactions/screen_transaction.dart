@@ -14,6 +14,7 @@ class ScreenTransaction extends StatelessWidget {
                 radius: 50,
                 child: Text(
                   '12\ndec',
+                  textAlign: TextAlign.center,
                 ),
               ),
               title: Text('RS 100000'),
