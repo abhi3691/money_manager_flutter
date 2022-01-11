@@ -10,7 +10,10 @@ class IncomeCategoryList extends StatelessWidget {
           return Card(
             child: ListTile(
               title: Text('Income Category $index'),
-              trailing: IconButton(onPressed: () {}, icon: Icon(Icons.delete)),
+              trailing: IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.delete),
+              ),
             ),
           );
         },
