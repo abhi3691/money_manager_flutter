@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:money_manager_flutter/models/category/category_model.dart';
+import 'package:money_manager_flutter/screens/add_transcation/screnn_add_trancation.dart';
 import 'package:money_manager_flutter/screens/home/screen_home.dart';
+import 'package:money_manager_flutter/screens/transactions/screen_transaction.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,6 +38,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const ScreenHome(),
+      routes: {
+        ScreenaddTranSaction.routeName: (ctx) => const ScreenaddTranSaction(),
+      },
     );
   }
 }

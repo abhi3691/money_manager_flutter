@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:money_manager_flutter/models/category/category_db.dart';
 import 'package:money_manager_flutter/models/category/category_model.dart';
+import 'package:money_manager_flutter/screens/add_transcation/screnn_add_trancation.dart';
 import 'package:money_manager_flutter/screens/category/category_add_popup.dart';
 import 'package:money_manager_flutter/screens/category/screen_category.dart';
 import 'package:money_manager_flutter/screens/home/widgets/bottom_navigation.dart';
@@ -36,6 +37,7 @@ class ScreenHome extends StatelessWidget {
         onPressed: () {
           if (selelctedIndexNotifer.value == 0) {
             print('Add transaction');
+            Navigator.of(context).pushNamed(ScreenaddTranSaction.routeName);
           } else {
             print('Add Category');
             showCategoryAddPopup(context);
