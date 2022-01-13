@@ -14,6 +14,13 @@ class _ScreenaddTranSactionState extends State<ScreenaddTranSaction> {
   DateTime? _selelctedDate;
   CategoryType? _SelectedCategorytype;
   CategoryModel? _selelctedCategoryModel;
+  String? _CategoryID;
+
+  @override
+  void initState() {
+    _SelectedCategorytype = CategoryType.income;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,8 +72,13 @@ class _ScreenaddTranSactionState extends State<ScreenaddTranSaction> {
                     children: [
                       Radio(
                         value: CategoryType.income,
-                        groupValue: CategoryType.income,
-                        onChanged: (newValue) {},
+                        groupValue: _SelectedCategorytype,
+                        onChanged: (newValue) {
+                          setState(() {
+                            _SelectedCategorytype = CategoryType.income;
+                            _CategoryID = null;
+                          });
+                        },
                       ),
                       Text('Income'),
                     ],
@@ -75,17 +87,26 @@ class _ScreenaddTranSactionState extends State<ScreenaddTranSaction> {
                     children: [
                       Radio(
                         value: CategoryType.expense,
-                        groupValue: CategoryType.income,
-                        onChanged: (newValue) {},
+                        groupValue: _SelectedCategorytype,
+                        onChanged: (newValue) {
+                          setState(() {
+                            _SelectedCategorytype = CategoryType.expense;
+                            _CategoryID = null;
+                          });
+                        },
                       ),
-                      Text('Income'),
+                      Text('Expense'),
                     ],
                   ),
                 ],
               ),
-              DropdownButton(
+              DropdownButton<String>(
                 hint: const Text('Selelct Category'),
-                items: CategoryDB.instance.expenseCategoryListListener.value
+                value: _CategoryID,
+                items: (_SelectedCategorytype == CategoryType.income
+                        ? CategoryDB().incomeCategoryListListener
+                        : CategoryDB.instance.expenseCategoryListListener)
+                    .value
                     .map((e) {
                   return DropdownMenuItem(
                     value: e.id,
@@ -94,6 +115,9 @@ class _ScreenaddTranSactionState extends State<ScreenaddTranSaction> {
                 }).toList(),
                 onChanged: (selectedValue) {
                   print(selectedValue);
+                  setState(() {
+                    _CategoryID = selectedValue;
+                  });
                 },
               ),
               ElevatedButton(
