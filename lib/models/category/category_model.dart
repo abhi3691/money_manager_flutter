@@ -29,6 +29,6 @@ class CategoryModel {
   @override
   String toString() {
     // TODO: implement toString
-    return '$name $type';
+    return '{$name $type}';
   }
 }

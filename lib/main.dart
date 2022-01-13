@@ -5,11 +5,11 @@ import 'package:money_manager_flutter/screens/home/screen_home.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Hive.initFlutter();
-  if (Hive.isAdapterRegistered(CategoryTypeAdapter().typeId)) {
+  await Hive.initFlutter();
+  if (!Hive.isAdapterRegistered(CategoryTypeAdapter().typeId)) {
     Hive.registerAdapter(CategoryTypeAdapter());
   }
-  if (Hive.isAdapterRegistered(CategoryModelAdapter().typeId)) {
+  if (!Hive.isAdapterRegistered(CategoryModelAdapter().typeId)) {
     Hive.registerAdapter(CategoryModelAdapter());
   }
   runApp(const MyApp());
