@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:money_manager_flutter/models/category/category_db.dart';
+import 'package:money_manager_flutter/db/category/category_db.dart';
 import 'package:money_manager_flutter/screens/category/expense_category_list.dart';
 import 'package:money_manager_flutter/screens/category/income_category_list.dart';
 

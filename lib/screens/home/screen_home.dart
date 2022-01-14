@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:money_manager_flutter/models/category/category_db.dart';
+import 'package:money_manager_flutter/db/category/category_db.dart';
 import 'package:money_manager_flutter/models/category/category_model.dart';
 import 'package:money_manager_flutter/screens/add_transcation/screnn_add_trancation.dart';
 import 'package:money_manager_flutter/screens/category/category_add_popup.dart';

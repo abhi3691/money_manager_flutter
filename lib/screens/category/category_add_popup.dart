@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:money_manager_flutter/models/category/category_db.dart';
+import 'package:money_manager_flutter/db/category/category_db.dart';
 import 'package:money_manager_flutter/models/category/category_model.dart';
 
 ValueNotifier<CategoryType> selectedCategoryNotifer =
