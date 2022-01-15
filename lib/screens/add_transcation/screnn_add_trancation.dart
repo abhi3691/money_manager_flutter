@@ -132,7 +132,9 @@ class _ScreenaddTranSactionState extends State<ScreenaddTranSaction> {
                 },
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  addTrasaction();
+                },
                 child: Text('Submit'),
               ),
             ],
@@ -170,6 +172,8 @@ class _ScreenaddTranSactionState extends State<ScreenaddTranSaction> {
       type: _SelectedCategorytype!,
       category: _selelctedCategoryModel!,
     );
-    TransactionDB.instance.addTrasaction(_model);
+    await TransactionDB.instance.addTrasaction(_model);
+    Navigator.of(context).pop();
+    TransactionDB.instance.refresh();
   }
 }
